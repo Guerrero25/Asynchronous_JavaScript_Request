@@ -50,7 +50,7 @@
     unsplashRequest.setRequestHeader('Authorization', 'Client-ID cfa940013b1dad0b1009462643b1f8f6dcd18a2f5ba1165988c54476e57eacc0');
     unsplashRequest.send();
 
-    articleRequest.open('GET',`http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=d38430c0080d4c5eaf0710f3b32eb0f1`)
+    articleRequest.open('GET',`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=d38430c0080d4c5eaf0710f3b32eb0f1`)
     articleRequest.onload = addArticles
     articleRequest.send()
 
