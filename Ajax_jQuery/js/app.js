@@ -2,33 +2,28 @@
   const form = document.querySelector('.search-form')
   const searchField = document.querySelector('#search-keyword')
   let searchedForText
+  const bgcontainer = document.querySelector('.masthead')
   const responseContainer = document.querySelector('#response-container')
 
   function addImage (data) {
-    let htmlContent = ''
-
     if (data && data.results && data.results[0]) {
       const firstImage = data.results[0]
-      htmlContent = `<figure class="image-top">
-          <img src="${firstImage.urls.regular}" alt="${searchedForText}">
-          <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
-      </figure>`
-    } else {
-      htmlContent = '<div class="error">No images availadle</div>'
+      bgcontainer.style.backgroundImage = `url('${firstImage.urls.regular}')`
     }
-
-    responseContainer.insertAdjacentHTML('afterbegin', htmlContent)
   }
 
   function addArticles (data) {
     let htmlContent = ''
 
     if (data.response && data.response.docs && data.response.docs.length > 1) {
-      htmlContent = '<ul>' + data.response.docs.map(article => `<li class="article">
-            <h2><a href="${article.web_url}"> ${article.headline.main}</a></h2>
-            <p>${article.snippet}</p>
-          </li>`).join('') + '</ul>'
+      responseContainer.innerHTML = ''
+      htmlContent = '<div class="container-articles">' + data.response.docs.map(
+        article => `<a href="${article.web_url}" target="_blank"><div class="article" style="background-image:url(${article.multimedia.length !== 0 ? 'https://nytimes.com/' + article.multimedia[0].url : '/img/default.jpg'})">
+                        <h2 class="article__title">${article.headline.main}</h2>
+                        <p class="article__description">${article.snippet}</p>
+                      </div>`).join('') + '</div>'
     } else {
+      responseContainer.innerHTML = ''
       htmlContent = '<div class="error">No articles availadle</div>'
     }
 
@@ -37,7 +32,7 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault()
-    responseContainer.innerHTML = ''
+    responseContainer.innerHTML = '<div class="charge-status"></div>'
     searchedForText = searchField.value
 
     $.ajax({
