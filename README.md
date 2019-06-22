@@ -40,7 +40,7 @@ serverRequest.onload = function () {
 serverRequest.send() // Triggers the request
 ```
 
-You can see a complete example using the [Unplash](https://unsplash.com/developers) and [New York Time](https://developer.nytimes.com/) APIs [here](Ajax_XmlHttpRequest/js/app.js).
+You can see a complete example using the [Unplash](https://unsplash.com/developers) and [New York Time](https://developer.nytimes.com/) APIs [here](Ajax_XmlHttpRequest).
 
 #### Using jQuery
 
@@ -55,7 +55,7 @@ $.ajax({ url: `https://server-domain.com?q=query`  }).done(function (data) {
    // Do something with the data
 })
 ```
-You can see a complete example using the [Unplash](https://unsplash.com/developers) and [New York Time](https://developer.nytimes.com/) APIs [here](Ajax_jQuery/js/app.js).
+You can see a complete example using the [Unplash](https://unsplash.com/developers) and [New York Time](https://developer.nytimes.com/) APIs [here](Ajax_jQuery).
 
 #### Using Fetch API
 
@@ -77,6 +77,6 @@ fetch(`https://server-domain.com?q=query`)
    }))
 ```
 
-You can see a complete example using the [Unplash](https://unsplash.com/developers) and [New York Time](https://developer.nytimes.com/) APIs [here](Fetch/js/app.js).
+You can see a complete example using the [Unplash](https://unsplash.com/developers) and [New York Time](https://developer.nytimes.com/) APIs [here](Fetch).
 
 Keep learning!.
